@@ -5,8 +5,8 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import CustomCursor from './components/CustomCursor';
 import Marquee from './components/Marquee';
-import Home from './pages/Home';
-import Login from './pages/Login';
+import Home from './old_pages/Home';
+import Login from './old_pages/Login';
 import './App.css';
 
 function App() {

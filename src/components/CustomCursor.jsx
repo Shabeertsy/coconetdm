@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import './CustomCursor.css';
 
@@ -29,11 +31,11 @@ const CustomCursor = () => {
 
   return (
     <>
-      <div 
+      <div
         className={`cursor-dot ${isHovering ? 'hover' : ''}`}
         style={{ left: `${position.x}px`, top: `${position.y}px` }}
       />
-      <div 
+      <div
         className={`cursor-outline ${isHovering ? 'hover' : ''}`}
         style={{ left: `${position.x}px`, top: `${position.y}px` }}
       />

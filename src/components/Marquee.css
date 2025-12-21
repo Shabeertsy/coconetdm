@@ -1,48 +1,91 @@
-.marquee-container {
-  position: relative;
+.brand-strip {
   width: 100%;
-  overflow: hidden;
-  background: var(--text-primary); /* White in light mode, white in dark mode */
-  padding: 1.5rem 0;
+  padding: 3rem 0;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--card-border);
   display: flex;
-  transform: rotate(-2deg) scale(1.05);
-  margin: var(--spacing-xl) 0;
-  border-top: 2px solid var(--bg-primary);
-  border-bottom: 2px solid var(--bg-primary);
+  justify-content: center;
 }
 
-.marquee-content {
-  display: flex;
-  gap: 3rem;
-  animation: scroll 25s linear infinite;
-  white-space: nowrap;
-  padding-right: 3rem;
-}
-
-.marquee-item {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 900;
-  font-size: 1.8rem;
-  color: var(--bg-primary); /* Black text on white background */
-  text-transform: uppercase;
-  letter-spacing: 3px;
+.strip-container {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  justify-content: center;
+  gap: 4rem;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 1rem;
 }
 
-@keyframes scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
+.strip-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.strip-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.strip-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.strip-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.strip-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--primary-color);
+  /* Brown */
+  text-transform: uppercase;
+}
+
+.strip-text {
+  font-family: 'Inter', sans-serif;
+  /* or sans font */
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.strip-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--card-border);
+  transform: rotate(15deg);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
-  .marquee-item {
-    font-size: 1.2rem;
-    gap: 1rem;
+  .strip-container {
+    flex-direction: column;
+    gap: 2.5rem;
   }
-  
-  .marquee-content {
-    gap: 2rem;
+
+  .strip-divider {
+    width: 40px;
+    height: 1px;
+    transform: rotate(0);
   }
 }

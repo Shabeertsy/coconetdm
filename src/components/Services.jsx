@@ -26,6 +26,18 @@ const Services = () => {
       description: 'Data-driven digital marketing solutions designed to grow your reach and engagement.',
       tags: ['Social Media', 'SEO/SEM', 'Performance Marketing'],
     },
+    {
+      id: '05',
+      title: 'Web Development',
+      description: 'Custom, responsive websites built with the latest technologies to ensure optimal performance.',
+      tags: ['Frontend', 'Backend', 'E-commerce'],
+    },
+    {
+      id: '06',
+      title: 'App Development',
+      description: 'Intuitive mobile applications designed to provide seamless user experiences across all devices.',
+      tags: ['iOS', 'Android', 'React Native'],
+    },
   ];
 
   return (
@@ -42,18 +54,18 @@ const Services = () => {
               <div className="service-card-header">
                 <span className="service-number">{service.id}</span>
               </div>
-              
+
               <div className="service-card-body">
                 <h3 className="service-card-title">{service.title}</h3>
                 <p className="service-card-desc">{service.description}</p>
-                
+
                 <div className="service-card-tags">
                   {service.tags.map((tag, idx) => (
                     <span key={idx} className="service-tag-item">{tag}</span>
                   ))}
                 </div>
               </div>
-              
+
               <div className="service-card-footer">
                 <span className="service-link">Learn More →</span>
               </div>

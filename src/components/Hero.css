@@ -18,7 +18,8 @@
   font-weight: 900;
   font-size: 20vw;
   line-height: 0.8;
-  color: rgba(255, 255, 255, 0.02);
+  color: var(--text-primary);
+  opacity: 0.03;
   z-index: 0;
   pointer-events: none;
   white-space: nowrap;
@@ -66,13 +67,13 @@
 }
 
 .brand-box {
-  background: rgba(20, 20, 20, 0.8);
+  background: var(--card-bg);
   backdrop-filter: blur(20px);
   border: 1px solid var(--primary-color);
   padding: 2rem 4rem;
   text-align: center;
   border-radius: var(--radius-lg);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
@@ -91,9 +92,9 @@
   font-size: 2.5rem;
   margin: 0;
   line-height: 1;
-  background: linear-gradient(to right, #fff, #ccc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text-primary);
+  background: none;
+  -webkit-text-fill-color: var(--text-primary);
 }
 
 .brand-tagline {
@@ -134,37 +135,53 @@
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes moveDown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(5px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
 }
 
 @media (max-width: 768px) {
-  .outline-text, .filled-text {
+
+  .outline-text,
+  .filled-text {
     transform: translateX(0);
     font-size: 18vw;
   }
-  
+
   .hero-center-piece {
     margin: 1rem 0;
     transform: rotate(0);
   }
-  
+
   .brand-box {
     padding: 1.5rem 2rem;
   }
-  
+
   .hero-footer {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
     text-align: center;
   }
-  
+
   .hero-description-text {
     text-align: center;
   }

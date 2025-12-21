@@ -1,11 +1,8 @@
 import './Clients.css';
 
 const Clients = () => {
-  // Using text logos for now - you can replace with actual logo images
   const clients = [
-    'ACME CORP', 'TECH SOLUTIONS', 'DIGITAL WAVE', 'FUTURE LABS',
-    'BRAND CO', 'INNOVATE INC', 'PIXEL STUDIO', 'CREATIVE HUB',
-    'ACME CORP', 'TECH SOLUTIONS', 'DIGITAL WAVE', 'FUTURE LABS' // Duplicates for seamless loop
+    'I Trust Eye Hospital', 'Gleamia Fashion'
   ];
 
   return (
@@ -16,7 +13,7 @@ const Clients = () => {
           <h2 className="section-title">OUR CLIENTS</h2>
         </div>
       </div>
-      
+
       <div className="clients-marquee">
         <div className="clients-track">
           {clients.map((client, index) => (

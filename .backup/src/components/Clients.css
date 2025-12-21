@@ -1,0 +1,71 @@
+.clients {
+  background: var(--bg-primary);
+  padding: var(--spacing-3xl) 0;
+  overflow: hidden;
+}
+
+.clients-header {
+  margin-bottom: var(--spacing-2xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: var(--spacing-lg);
+}
+
+.clients-marquee {
+  display: flex;
+  gap: var(--spacing-xl);
+  user-select: none;
+  margin-top: var(--spacing-2xl);
+}
+
+.clients-track {
+  display: flex;
+  gap: var(--spacing-xl);
+  animation: scroll-clients 30s linear infinite;
+  flex-shrink: 0;
+}
+
+.client-item {
+  flex-shrink: 0;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  transition: all 0.3s ease;
+}
+
+.client-item:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-4px);
+}
+
+.client-logo {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.client-item:hover .client-logo {
+  color: var(--text-primary);
+}
+
+@keyframes scroll-clients {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .clients-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+}

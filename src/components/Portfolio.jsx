@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import './Portfolio.css';
 
@@ -7,32 +9,20 @@ const Portfolio = () => {
   const projects = [
     {
       id: '01',
-      title: 'Neon Commerce',
+      title: 'Gleamia Fashion',
       category: 'Web Development',
       image: 'linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%)',
-      description: 'Futuristic E-commerce'
+      description: 'E-commerce'
     },
+
     {
       id: '02',
-      title: 'Future Finance',
-      category: 'App Design',
-      image: 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)',
-      description: 'Next-Gen Banking'
+      title: 'I Trust Eye Hospital',
+      category: 'Production',
+      image: 'linear-gradient(135deg, #1e1e1e 0%, #0a0a0a 100%)',
+      description: 'Healthcare Identity'
     },
-    {
-      id: '03',
-      title: 'Aero Systems',
-      category: 'Branding',
-      image: 'linear-gradient(135deg, #333 0%, #000 100%)',
-      description: 'Aerospace Identity'
-    },
-    {
-      id: '04',
-      title: 'Urban Pulse',
-      category: 'Marketing',
-      image: 'linear-gradient(135deg, #222 0%, #111 100%)',
-      description: 'Smart City Campaign'
-    }
+
   ];
 
   return (
@@ -46,7 +36,7 @@ const Portfolio = () => {
           {/* Left Side: Project List */}
           <div className="project-list">
             {projects.map((project, index) => (
-              <div 
+              <div
                 key={project.id}
                 className={`project-list-item ${activeProject === index ? 'active' : ''}`}
                 onMouseEnter={() => setActiveProject(index)}
@@ -61,7 +51,7 @@ const Portfolio = () => {
                 </div>
               </div>
             ))}
-            
+
             <div className="portfolio-cta-mobile">
               <button className="btn btn-secondary">View All</button>
             </div>
@@ -69,7 +59,7 @@ const Portfolio = () => {
 
           {/* Right Side: Sticky Image Preview */}
           <div className="project-preview">
-            <div 
+            <div
               className="preview-image"
               style={{ background: projects[activeProject].image }}
             >

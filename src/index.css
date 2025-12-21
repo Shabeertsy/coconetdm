@@ -5,18 +5,19 @@
   --bg-primary: #0a0a0a;
   --bg-secondary: #111111;
   --bg-tertiary: #1a1a1a;
-  
+
   --text-primary: #ffffff;
   --text-secondary: #a1a1aa;
   --text-muted: #52525b;
-  
-  /* The Blue Accent from your image */
-  --primary-color: #3b82f6; 
-  --primary-hover: #2563eb;
-  
+
+  /* New Earthy Theme Colors (from image) */
+  --primary-color: #5D4037;
+  /* Coconut Brown */
+  --primary-hover: #3E2723;
+
   --card-bg: #111111;
   --card-border: #27272a;
-  
+
   /* Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
@@ -25,30 +26,35 @@
   --spacing-xl: 4rem;
   --spacing-2xl: 6rem;
   --spacing-3xl: 8rem;
-  
+
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
   --radius-full: 9999px;
-  
-  --transition-base: 300ms cubic-bezier(0.16, 1, 0.3, 1); /* Snappy futuristic ease */
+
+  --transition-base: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  /* Smooth organic ease */
 }
 
-/* Light Mode Variables (High Contrast) */
+/* Light Mode Variables (Cream/Beige Theme) */
 [data-theme='light'] {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f4f4f5;
-  --bg-tertiary: #e4e4e7;
-  
-  --text-primary: #09090b;
-  --text-secondary: #52525b;
-  --text-muted: #a1a1aa;
-  
-  --primary-color: #2563eb;
-  --primary-hover: #1d4ed8;
-  
-  --card-bg: #ffffff;
-  --card-border: #e4e4e7;
+  --bg-primary: #F5F0E6;
+  /* Cream/Beige */
+  --bg-secondary: #EBE5D9;
+  /* Darker Beige */
+  --bg-tertiary: #DED6C5;
+
+  --text-primary: #2C2520;
+  /* Dark Brown/Black */
+  --text-secondary: #5D5550;
+  --text-muted: #8B8580;
+
+  --primary-color: #5D4037;
+  /* Coconut Brown */
+  --primary-hover: #3E2723;
+
+  --card-bg: #FCF9F2;
+  --card-border: #DED6C5;
 }
 
 * {
@@ -70,7 +76,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
   line-height: 1.1;
@@ -79,9 +90,17 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
 }
 
-h1 { font-size: clamp(3rem, 6vw, 5rem); }
-h2 { font-size: clamp(2.5rem, 5vw, 4rem); }
-h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
+h1 {
+  font-size: clamp(3rem, 6vw, 5rem);
+}
+
+h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
 
 a {
   text-decoration: none;
@@ -157,8 +176,15 @@ a {
 
 /* Animations */
 @keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in-up {
@@ -169,9 +195,11 @@ a {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--bg-tertiary);
   border-radius: var(--radius-full);
