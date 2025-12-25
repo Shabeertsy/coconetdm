@@ -7,7 +7,6 @@ import About from '../src/components/About';
 import Contact from '../src/components/Contact';
 
 export const metadata = {
-    title: 'Home',
     description: 'Coconet is a premier digital marketing and web development agency. We craft stunning websites and powerful marketing strategies to grow your business.',
     openGraph: {
         title: 'Coconet | Digital Marketing & Web Development',
