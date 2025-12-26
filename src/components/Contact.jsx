@@ -13,7 +13,16 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [honeypot, setHoneypot] = useState(''); // Bot detection
+  const [toast, setToast] = useState({ show: false, message: '', type: '' });
   const lastSubmitTime = useRef(0);
+
+  // Show toast notification
+  const showToast = (message, type = 'success') => {
+    setToast({ show: true, message, type });
+    setTimeout(() => {
+      setToast({ show: false, message: '', type: '' });
+    }, 5000); // Hide after 5 seconds
+  };
 
   // Input validation and sanitization
   const sanitizeInput = (input) => {
@@ -47,28 +56,28 @@ const Contact = () => {
     // Rate limiting - prevent spam (minimum 5 seconds between submissions)
     const now = Date.now();
     if (now - lastSubmitTime.current < 5000) {
-      alert('Please wait a moment before submitting again.');
+      showToast('Please wait a moment before submitting again.', 'warning');
       return;
     }
 
     // Validate inputs
     if (!validateEmail(formData.email)) {
-      alert('Please enter a valid email address.');
+      showToast('Please enter a valid email address.', 'error');
       return;
     }
 
     if (!validatePhone(formData.phone)) {
-      alert('Please enter a valid phone number.');
+      showToast('Please enter a valid phone number.', 'error');
       return;
     }
 
     if (formData.name.length < 2 || formData.name.length > 100) {
-      alert('Name must be between 2 and 100 characters.');
+      showToast('Name must be between 2 and 100 characters.', 'error');
       return;
     }
 
     if (formData.message.length < 10 || formData.message.length > 1000) {
-      alert('Message must be between 10 and 1000 characters.');
+      showToast('Message must be between 10 and 1000 characters.', 'error');
       return;
     }
 
@@ -93,7 +102,7 @@ const Contact = () => {
       const result = await response.json();
 
       if (result.success) {
-        alert('Message sent successfully! We\'ll get back to you soon.');
+        showToast('Message sent successfully! We\'ll get back to you soon.', 'success');
         setFormData({
           name: '',
           email: '',
@@ -105,7 +114,7 @@ const Contact = () => {
       }
     } catch (error) {
       console.error('Contact form error:', error);
-      alert('Failed to send message. Please try again later or contact us directly.');
+      showToast('Failed to send message. Please try again later.', 'error');
     } finally {
       setIsSubmitting(false);
     }
@@ -196,6 +205,20 @@ const Contact = () => {
           </form>
         </div>
       </div>
+
+      {/* Toast Notification */}
+      {toast.show && (
+        <div className={`toast toast-${toast.type}`}>
+          <div className="toast-content">
+            <span className="toast-icon">
+              {toast.type === 'success' && '✓'}
+              {toast.type === 'error' && '✕'}
+              {toast.type === 'warning' && '⚠'}
+            </span>
+            <span className="toast-message">{toast.message}</span>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
